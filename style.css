@@ -1,0 +1,454 @@
+/* Variables CSS para fácil edición de colores */
+:root {
+    --primary-color: #007BFF; /* Azul brillante, moderno */
+    --secondary-color: #6C757D; /* Gris suave para botones secundarios */
+    --accent-color: #28A745; /* Verde para énfasis o éxito */
+    --text-color: #333333; /* Negro casi puro para el texto */
+    --light-text-color: #555555; /* Gris oscuro para texto secundario */
+    --background-light: #F8F9FA; /* Gris muy claro para secciones claras */
+    --background-dark: #E9ECEF; /* Gris un poco más oscuro para contraste */
+    --white: #FFFFFF;
+    --border-color: #DEE2E6; /* Borde sutil */
+    --shadow-light: rgba(0, 0, 0, 0.08); /* Sombra ligera para tarjetas */
+}
+
+/* Reset Básico y Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased; /* Mejor renderizado de fuentes */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Encabezados */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; text-align: center; margin-bottom: 40px; }
+h3 { font-size: 1.8em; }
+
+/* Botones */
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px; /* Espacio entre botones */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Tono más oscuro de azul */
+    transform: translateY(-2px); /* Pequeño levantamiento */
+}
+
+.secondary-button {
+    background-color: var(--secondary-color);
+}
+
+.secondary-button:hover {
+    background-color: #5a6268; /* Tono más oscuro de gris */
+    transform: translateY(-2px);
+}
+
+/* Enlaces de Texto */
+.text-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.text-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* --- Header y Navegación --- */
+header {
+    background-color: var(--white);
+    padding: 20px 0;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    position: sticky; /* Fija el header al hacer scroll */
+    top: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative; /* Para el efecto de subrayado */
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Efecto de subrayado en hover para la navegación */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    bottom: -5px;
+    left: 0;
+    transition: width .3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* --- Sección Hero --- */
+.hero-section {
+    background-color: var(--background-light);
+    text-align: center;
+    padding: 100px 0;
+    min-height: 80vh; /* Asegura que ocupe gran parte de la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.hero-content h3 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    color: var(--light-text-color);
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* Forma circular */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien */
+    border: 5px solid var(--white);
+    box-shadow: 0 5px 15px var(--shadow-light);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05); /* Pequeña ampliación al pasar el ratón */
+}
+
+/* --- Secciones Generales --- */
+section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border-color); /* Separador visual */
+}
+
+/* Alterna el color de fondo para legibilidad */
+section:nth-of-type(even) {
+    background-color: var(--background-light);
+}
+
+/* --- Sección Acerca de Mí --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    color: var(--light-text-color);
+}
+
+.about-skills h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-skills ul {
+    list-style: none;
+}
+
+.about-skills ul li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+/* Iconos de chequeo (simulados con texto si no usas FontAwesome) */
+.icon-check {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* --- Sección Proyectos --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px; /* Espacio para los botones */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-card h3 {
+    margin: 20px 15px 10px 15px;
+    color: var(--primary-color);
+    font-size: 1.5em;
+}
+
+.project-card p {
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    padding: 0 15px 20px 15px;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* --- Sección Habilidades --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: center; /* Centra el contenido de las columnas */
+}
+
+.skill-category {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.skill-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category ul li {
+    background-color: var(--background-light);
+    color: var(--text-color);
+    padding: 8px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: inline-block; /* Para que parezcan "etiquetas" */
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.skill-category ul li:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+
+/* --- Sección Contacto --- */
+.contact-section {
+    text-align: center;
+    background-color: var(--background-dark);
+    padding: 80px 0;
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: var(--light-text-color);
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Iconos de Contacto (simulados) */
+.icon-email, .icon-linkedin, .icon-github {
+    font-weight: bold; /* Hace el texto del icono más prominente */
+    margin-right: 8px;
+    color: var(--primary-color); /* Color del icono */
+}
+/* Si quieres usar Font Awesome para iconos, descomenta y reemplaza: */
+/*
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+.icon-email::before { content: "\f0e0"; font-family: "Font Awesome 6 Free"; font-weight: 900; }
+.icon-linkedin::before { content: "\f08c"; font-family: "Font Awesome 6 Brands"; font-weight: 400; }
+.icon-github::before { content: "\f09b"; font-family: "Font Awesome 6 Brands"; font-weight: 400; }
+.icon-check::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; }
+.icon-arrow-right::before { content: "\f061"; font-family: "Font Awesome 6 Free"; font-weight: 900; }
+*/
+
+
+/* --- Footer --- */
+footer {
+    background-color: var(--text-color);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+/* --- Media Queries para Responsividad (Dispositivos Móviles) --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; margin-bottom: 30px;}
+    h3 { font-size: 1.5em; }
+
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .hero-section {
+        padding: 80px 0 60px 0;
+        min-height: auto;
+    }
+
+    .hero-content h2 {
+        font-size: 2.8em;
+    }
+
+    .hero-content h3 {
+        font-size: 1.4em;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+
+    .projects-grid, .skills-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+
+    .project-card {
+        margin: 0 10px; /* Margen para que no toque los bordes de la pantalla */
+    }
+
+    .button {
+        margin: 10px 10px; /* Ajusta el margen de los botones en móviles */
+        width: calc(100% - 20px); /* Ocupa casi todo el ancho */
+        max-width: 300px; /* Limita el ancho máximo */
+    }
+}

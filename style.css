@@ -262,11 +262,13 @@ section:nth-of-type(even) {
 }
 
 .project-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block; /* Elimina espacio extra debajo de la imagen */
-    border-bottom: 1px solid var(--border-color);
+	
+ display: block;
+ width: 100%;
+ height: auto; /* O una altura fija si lo prefieres */
+ object-fit: cover; /* Prueba con 'contain' o 'fill' si 'cover' no es lo que buscas */
+ /* Otros estilos... */
+
 }
 
 .project-card h3 {

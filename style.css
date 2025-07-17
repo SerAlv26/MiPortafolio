@@ -261,39 +261,83 @@ section:nth-of-type(even) {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
 }
 
+/* Estilos para las imágenes dentro de las tarjetas de proyecto */
 .project-card img {
+    width: 100%; /* La imagen ocupará el 100% del ancho de su tarjeta */
+    height: 250px; /* Aquí defines la altura fija que todas tus imágenes tendrán */
+    object-fit: contain; /* ¡Clave! La imagen se escalará para caber completamente, sin recortes */
+    display: block; /* Elimina el espacio extra debajo de la imagen */
+    border-bottom: 1px solid #e0e0e0; /* Opcional: un borde para separar visualmente la imagen del texto */
+    background-color: #f8f8f8; /* Color de fondo para los posibles espacios vacíos si object-fit: contain se activa */
+}
+
+/* El resto de tus estilos para .projects-carousel y .project-card,
+   que configuran el carrusel y las tarjetas, irían aquí. */
+.carousel-container {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block; /* Elimina espacio extra debajo de la imagen */
-    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
 }
 
-.project-card h3 {
-    margin: 20px 15px 10px 15px;
-    color: var(--primary-color);
-    font-size: 1.5em;
+.projects-carousel {
+    display: flex;
+    gap: 0; /* Sin espacio entre slides en el carrusel para el efecto de slider */
+    transition: transform 0.5s ease-in-out;
 }
 
-.project-card p {
-    font-size: 0.95em;
-    color: var(--light-text-color);
-    padding: 0 15px 20px 15px;
+.project-card {
+    flex: 0 0 100%; /* Cada tarjeta ocupa el 100% del ancho del carrusel */
+    min-width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
 }
 
-.project-link {
-    display: inline-block;
-    color: var(--primary-color);
+/* Reglas :target para la navegación del carrusel (si la usas) */
+#project-1:target ~ .projects-carousel { transform: translateX(0%); }
+#project-2:target ~ .projects-carousel { transform: translateX(-100%); }
+#project-3:target ~ .projects-carousel { transform: translateX(-200%); }
+
+/* Estilos de los botones de navegación */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.carousel-nav .nav-button {
+    pointer-events: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2em;
+    padding: 10px 15px;
+    border-radius: 50%;
     text-decoration: none;
-    font-weight: 600;
-    margin-top: 10px;
-    padding: 0 15px;
-    transition: color 0.3s ease;
+    line-height: 1;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
-.project-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
+.carousel-nav .nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Ocultar el scrollbar si no lo quieres visible */
+.projects-carousel::-webkit-scrollbar {
+    display: none;
+}
+.projects-carousel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /* --- Sección Habilidades --- */
